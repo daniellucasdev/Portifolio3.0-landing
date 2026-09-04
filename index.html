@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Lucas — Engenheiro de Software</title>
+<meta name="description" content="Daniel Lucas Ferreira de Araújo — Engenheiro de Software. Mobile, Vue, Nuxt, TypeScript, PHP/Laravel. 5 anos construindo produtos, de apps publicados nas lojas a plataformas de TPV milionário.">
+<meta property="og:title" content="Daniel Lucas — Engenheiro de Software">
+<meta property="og:description" content="Mobile, Vue, Nuxt, TypeScript, PHP/Laravel. Apps publicados, plataformas de pagamento e bastante código real.">
+<meta property="og:image" content="https://github.com/daniellucasdev.png">
+<link rel="icon" href="https://github.com/daniellucasdev.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0e0c;
+    --bg2:#101310;
+    --ink:#e9ede6;
+    --muted:#9aa39a;
+    --faint:#66706a;
+    --border:#222822;
+    --accent:#9fe870;
+    --accent-dim:#3d5c2a;
+    --font-body:"Space Grotesk",sans-serif;
+    --font-mono:"JetBrains Mono",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:#0c0e0c}
+  a{color:inherit}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--font-mono)}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(12,14,12,.92);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{display:flex;align-items:center;gap:28px;height:60px}
+  .nav-logo{font-family:var(--font-mono);font-size:.85rem;color:var(--ink);text-decoration:none}
+  .nav-logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:22px;margin-left:auto}
+  .nav-links a{
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--muted);text-decoration:none;
+    padding:6px 2px;transition:color .15s;
+  }
+  .nav-links a:hover,.nav-links a:focus-visible{color:var(--accent)}
+  .nav-cta{
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    color:#0c0e0c;background:var(--accent);text-decoration:none;
+    padding:8px 14px;border-radius:3px;font-weight:500;
+  }
+  .nav-cta:hover{background:#b4f18d}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  /* ---------- hero ---------- */
+  header{border-bottom:1px solid var(--border)}
+  .hero{
+    display:grid;grid-template-columns:1.5fr 1fr;gap:56px;
+    padding:88px 0 72px;align-items:center;
+  }
+  .hero-eyebrow{
+    font-family:var(--font-mono);font-size:.8rem;color:var(--accent);
+    margin-bottom:22px;min-height:1.4em;
+  }
+  .hero-eyebrow .cursor{display:inline-block;width:.55em;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  h1{
+    font-size:clamp(2.6rem,6.4vw,4.6rem);
+    line-height:1.02;letter-spacing:-.02em;font-weight:700;
+  }
+  h1 em{font-style:normal;color:var(--accent)}
+  .hero-role{
+    margin-top:18px;font-size:1.05rem;color:var(--muted);max-width:34em;
+  }
+  .hero-role strong{color:var(--ink);font-weight:500}
+  .hero-actions{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .btn{
+    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+    text-decoration:none;padding:12px 20px;border-radius:3px;font-weight:500;
+    display:inline-flex;align-items:center;gap:8px;transition:transform .12s,background .15s,border-color .15s;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-solid{background:var(--accent);color:#0c0e0c}
+  .btn-solid:hover{background:#b4f18d}
+  .btn-ghost{border:1px solid var(--border);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .hero-meta{
+    margin-top:38px;display:flex;gap:26px;flex-wrap:wrap;
+    font-family:var(--font-mono);font-size:.72rem;color:var(--faint);letter-spacing:.04em;
+  }
+  .hero-meta i{font-style:normal;color:var(--accent-dim);margin-right:7px}
+
+  .hero-side{justify-self:center;position:relative}
+  .avatar{
+    width:min(260px,60vw);aspect-ratio:1;border-radius:6px;display:block;
+    border:1px solid var(--border);
+    filter:saturate(.9);
+  }
+  .avatar-cap{
+    margin-top:14px;text-align:center;
+    font-family:var(--font-mono);font-size:.72rem;color:var(--faint);
+  }
+  .avatar-cap .dot{color:var(--accent)}
+  .corner{position:absolute;width:22px;height:22px;border-color:var(--accent);border-style:solid;border-width:0}
+  .c-tl{top:-10px;left:-10px;border-top-width:2px;border-left-width:2px}
+  .c-br{bottom:30px;right:-10px;border-bottom-width:2px;border-right-width:2px}
+
+  /* ---------- stats strip ---------- */
+  .stats{border-bottom:1px solid var(--border);background:var(--bg2)}
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    padding:34px 0;
+  }
+  .stat{padding:0 22px;border-left:1px solid var(--border)}
+  .stat:first-child{border-left:none;padding-left:0}
+  .stat b{
+    display:block;font-size:1.9rem;font-weight:700;letter-spacing:-.01em;line-height:1.1;
+  }
+  .stat b .arrow{color:var(--accent);font-weight:500}
+  .stat span{
+    display:block;margin-top:6px;
+    font-family:var(--font-mono);font-size:.68rem;color:var(--faint);
+    text-transform:uppercase;letter-spacing:.08em;line-height:1.5;
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:84px 0;border-bottom:1px solid var(--border)}
+  section:last-of-type{border-bottom:none}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:52px}
+  .sec-num{font-family:var(--font-mono);font-size:.78rem;color:var(--accent)}
+  .sec-title{font-size:1.55rem;font-weight:700;letter-spacing:-.01em}
+  .sec-rule{flex:1;height:1px;background:var(--border);align-self:center}
+
+  /* experience */
+  .xp-row{
+    display:grid;grid-template-columns:230px 1fr;gap:32px;
+    padding:30px 0;border-top:1px solid var(--border);
+  }
+  .xp-row:last-child{padding-bottom:0}
+  .xp-when{font-family:var(--font-mono);font-size:.72rem;color:var(--faint);line-height:1.9;letter-spacing:.03em}
+  .xp-when .now{color:var(--accent)}
+  .xp-what h3{font-size:1.12rem;font-weight:500}
+  .xp-what h3 span{color:var(--muted);font-weight:400}
+  .xp-what p{margin-top:4px;font-family:var(--font-mono);font-size:.72rem;color:var(--faint);letter-spacing:.03em}
+  .xp-what ul{margin-top:14px;list-style:none}
+  .xp-what li{
+    position:relative;padding-left:20px;margin-top:9px;
+    color:var(--muted);font-size:.95rem;
+  }
+  .xp-what li::before{content:"▸";position:absolute;left:0;color:var(--accent-dim)}
+  .xp-what li strong{color:var(--ink);font-weight:500}
+
+  /* projects */
+  .proj-list{border-top:1px solid var(--border)}
+  .proj{
+    display:grid;grid-template-columns:44px 1fr auto auto;gap:18px;align-items:center;
+    padding:20px 10px;border-bottom:1px solid var(--border);
+    text-decoration:none;transition:background .15s;
+  }
+  .proj:hover,.proj:focus-visible{background:var(--bg2)}
+  .proj-idx{font-family:var(--font-mono);font-size:.72rem;color:var(--faint)}
+  .proj-name{font-weight:500;font-size:1.02rem;display:flex;align-items:center;gap:10px}
+  .proj-name .ext{
+    font-family:var(--font-mono);font-size:.62rem;color:var(--accent);
+    border:1px solid var(--accent-dim);border-radius:3px;padding:1px 7px;letter-spacing:.06em;
+  }
+  .proj-desc{grid-column:2;color:var(--muted);font-size:.88rem;margin-top:2px}
+  .proj-lang{font-family:var(--font-mono);font-size:.7rem;color:var(--faint);letter-spacing:.04em}
+  .proj-stars{font-family:var(--font-mono);font-size:.7rem;color:var(--faint)}
+  .proj-stars i{font-style:normal;color:var(--accent)}
+  .proj:hover .proj-name{color:var(--accent)}
+  .proj-note{margin-top:26px;font-family:var(--font-mono);font-size:.72rem;color:var(--faint)}
+  .proj-note a{color:var(--muted)}
+
+  /* stack */
+  .stack-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:44px 64px}
+  .stack-group h3{
+    font-family:var(--font-mono);font-size:.72rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.12em;color:var(--faint);margin-bottom:16px;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:9px}
+  .tag{
+    font-family:var(--font-mono);font-size:.76rem;color:var(--ink);
+    border:1px solid var(--border);border-radius:3px;padding:6px 12px;
+  }
+  .tag.hl{border-color:var(--accent-dim);color:var(--accent)}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px}
+  .about-text p{color:var(--muted);margin-bottom:18px;font-size:1.02rem;max-width:36em}
+  .about-text p strong{color:var(--ink);font-weight:500}
+  .about-quote{
+    margin-top:30px;padding-left:18px;border-left:2px solid var(--accent);
+    color:var(--ink);font-size:1.05rem;
+  }
+  .about-quote small{
+    display:block;margin-top:6px;color:var(--faint);
+    font-family:var(--font-mono);font-size:.7rem;
+  }
+  .edu h3{font-size:1.02rem;font-weight:500}
+  .edu p{color:var(--muted);font-size:.9rem;margin-top:4px}
+  .edu .when{font-family:var(--font-mono);font-size:.7rem;color:var(--faint);margin-top:2px}
+  .edu-item{padding:20px 0;border-top:1px solid var(--border)}
+  .edu-item:first-child{border-top:none;padding-top:0}
+  .edu-item ul{margin-top:10px;list-style:none}
+  .edu-item li{
+    position:relative;padding-left:18px;color:var(--muted);font-size:.88rem;margin-top:6px;
+  }
+  .edu-item li::before{content:"—";position:absolute;left:0;color:var(--accent-dim)}
+  .certs{
+    margin-top:26px;font-family:var(--font-mono);font-size:.72rem;
+    color:var(--faint);line-height:2;
+  }
+  .certs b{color:var(--muted);font-weight:500}
+
+  /* footer */
+  footer{padding:76px 0 44px;background:var(--bg2);border-top:1px solid var(--border)}
+  .foot-cta{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:700;letter-spacing:-.02em;line-height:1.15}
+  .foot-cta a{color:var(--accent);text-decoration:none;border-bottom:2px solid var(--accent-dim)}
+  .foot-cta a:hover{border-color:var(--accent)}
+  .foot-links{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
+  .foot-links a{
+    font-family:var(--font-mono);font-size:.76rem;color:var(--muted);
+    text-decoration:none;letter-spacing:.05em;
+  }
+  .foot-links a:hover{color:var(--accent)}
+  .foot-base{
+    margin-top:56px;padding-top:22px;border-top:1px solid var(--border);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-family:var(--font-mono);font-size:.68rem;color:var(--faint);
+  }
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .hero-eyebrow .cursor{animation:none}
+  }
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:44px;padding:60px 0 56px}
+    .hero-side{justify-self:start;order:-1}
+    .avatar{width:170px}
+    .corner{display:none}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:26px 0}
+    .stat:nth-child(3){border-left:none;padding-left:0}
+    .stack-grid{grid-template-columns:1fr}
+    .about-grid{grid-template-columns:1fr;gap:44px}
+    .xp-row{grid-template-columns:1fr;gap:10px;padding:26px 0}
+    .proj{grid-template-columns:1fr auto;gap:6px 14px}
+    .proj-idx{display:none}
+    .proj-desc{grid-column:1}
+    .proj-lang{display:none}
+    .nav-links a:not(.nav-cta){display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav aria-label="Principal">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="#top">daniel<span>.</span>lucas</a>
+    <div class="nav-links">
+      <a href="#experiencia">Experiência</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#stack">Stack</a>
+      <a href="#sobre">Sobre</a>
+      <a class="nav-cta" href="https://github.com/daniellucasdev" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="hero-eyebrow mono"><span id="type"></span><span class="cursor">▊</span></p>
+      <h1>Daniel Lucas<br>constrói software<br><em>de ponta a ponta.</em></h1>
+      <p class="hero-role">
+        Engenheiro de Software e Segurança, 5 anos de estrada.
+        <strong>Mobile, Vue, Nuxt, TypeScript, PHP/Laravel</strong> — do protótipo ao app
+        publicado nas lojas, de landing page a plataforma de TPV milionário.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="https://www.linkedin.com/in/daniellucasfaraujo/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/daniellucasdev" target="_blank" rel="noopener">github/daniellucasdev ↗</a>
+      </div>
+      <div class="hero-meta">
+        <span><i>▸</i>Governador Valadares, MG — BR</span>
+        <span><i>▸</i>disponível para remoto</span>
+        <span><i>▸</i>inglês C2 (EF SET)</span>
+      </div>
+    </div>
+    <div class="hero-side">
+      <span class="corner c-tl" aria-hidden="true"></span>
+      <span class="corner c-br" aria-hidden="true"></span>
+      <img class="avatar" src="https://github.com/daniellucasdev.png" alt="Foto de Daniel Lucas" width="260" height="260">
+      <p class="avatar-cap"><span class="dot">●</span> @daniellucasdev</p>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b>5+ anos</b><span>de experiência</span></div>
+    <div class="stat"><b>2 apps</b><span>publicados · App Store &amp; Play Store</span></div>
+    <div class="stat"><b>38 <span class="arrow">→</span> 94</b><span>Lighthouse SEO · Braip Marketplace</span></div>
+    <div class="stat"><b>4,9 mil</b><span>seguidores no LinkedIn</span></div>
+  </div>
+</div>
+
+<section id="experiencia" aria-labelledby="h-xp">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title" id="h-xp">Experiência</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="xp-row reveal">
+      <div class="xp-when">
+        AGO/2026 — <span class="now">ATUAL</span><br>
+        Brasil · remoto
+      </div>
+      <div class="xp-what">
+        <h3>Engenheiro de Software e Segurança <span>· Consultoria financeira</span></h3>
+        <p>Business consulting · 100–150 pessoas · time distribuído em 22 países</p>
+        <ul>
+          <li>Engenharia e segurança de software para produtos <strong>financeiros</strong>, com princípios de cyber security aplicados ao fluxo de desenvolvimento.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp-row reveal">
+      <div class="xp-when">
+        FEV/2026 — <span class="now">ATUAL</span><br>
+        Porto Alegre, RS · remoto
+      </div>
+      <div class="xp-what">
+        <h3>Engenheiro de Software <span>· Pagah</span></h3>
+        <p>Checkout, call center integrado e pagamento de produtos físicos em escala</p>
+        <ul>
+          <li>Desenvolvi o <strong>app da empresa end-to-end em 2 meses</strong> — da burocracia (DUNS, e-mails) ao back-end (Auth, APIs), front-end, push notifications e publicação nas lojas.</li>
+          <li>Implementei fluxo de <strong>SDD (Spec Driven Development)</strong> para features pós-lançamento, elevando a média de entregas diárias de <strong>4 para 7</strong> com segurança.</li>
+          <li>Entreguei a <strong>Área de Cursos</strong> completa em 2 meses: painel admin (cursos, aulas, alunos, acessos, disparos de e-mail) + plataforma do aluno, com loading de <strong>5s → 1s</strong>.</li>
+          <li>Na auditoria financeira, descobri que usuários podiam <strong>sacar vendas com juros inclusos</strong> — a correção gerou <strong>3,3% de economia</strong> numa plataforma de TPV milionário.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp-row reveal">
+      <div class="xp-when">
+        MAR/2025 — MAR/2026<br>
+        Governador Valadares, MG
+      </div>
+      <div class="xp-what">
+        <h3>Mid-Level Software Developer <span>· Braip</span></h3>
+        <p>Promoção a Pleno — autonomia sobre projetos e mais back-end</p>
+        <ul>
+          <li><strong>Líder e principal responsável pelo app BraipV2</strong>: dei o start no projeto, desenvolvi, publiquei nas lojas Android e Apple, implementei push notifications e deleguei tarefas ao time.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp-row reveal">
+      <div class="xp-when">
+        DEZ/2022 — MAR/2025<br>
+        Governador Valadares, MG
+      </div>
+      <div class="xp-what">
+        <h3>Front-End Developer <span>· Braip</span></h3>
+        <p>Marketplace, Admin, Blog, Members e mais de 20 comerciais</p>
+        <ul>
+          <li>Desenvolvi o <strong>Braip Marketplace</strong> do zero ao pós-lançamento; melhoria de SEO elevou o Lighthouse de <strong>38 para 94</strong>.</li>
+          <li><strong>Liderança de sprints</strong> e revisão de PRs em vários produtos; planejei e liderei a estrutura de <strong>internacionalização</strong> do site.</li>
+          <li>Treinamento e <strong>onboarding de trainees</strong>; tradução para público internacional em eventos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp-row reveal">
+      <div class="xp-when">
+        SET/2022 — FEV/2024<br>
+        Freelancer · remoto
+      </div>
+      <div class="xp-what">
+        <h3>Full-Stack Freelancer <span>· clientes no Brasil e exterior</span></h3>
+        <p>Landing pages, sites institucionais e automações</p>
+        <ul>
+          <li>Site para <strong>autor de livros de fantasia</strong>, landing para <strong>curso de direito</strong>, site de <strong>empresa de mineração de MMO RPG</strong> e redesign institucional preservando identidade visual.</li>
+          <li>Back-end: bot de Discord integrado a <strong>API de arte generativa</strong>; i18n de software de emissão de faturas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos" aria-labelledby="h-pr">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title" id="h-pr">Projetos selecionados</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+    <div class="proj-list">
+
+      <a class="proj reveal" href="https://github.com/daniellucasdev/404" target="_blank" rel="noopener">
+        <span class="proj-idx">01</span>
+        <span class="proj-name">404 <span class="ext">WIP</span></span>
+        <span class="proj-lang">JavaScript · Next</span>
+        <span class="proj-stars">★ 0</span>
+        <span class="proj-desc">Fórum fullstack em Next.js + Postgres + Node — sistema de posts e contas para compartilhar conhecimentos. <em>Live: 404-eight.vercel.app</em></span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/daniellucasdev/ProjetoBOT" target="_blank" rel="noopener">
+        <span class="proj-idx">02</span>
+        <span class="proj-name">ProjetoBOT</span>
+        <span class="proj-lang">C++ · Raspberry Pi</span>
+        <span class="proj-stars">★ 0</span>
+        <span class="proj-desc">Robô em Raspberry Pi conectado à API do Gemini, com TTS em nuvem — responde perguntas em tempo real.</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/daniellucasdev/Marketplace0.2" target="_blank" rel="noopener">
+        <span class="proj-idx">03</span>
+        <span class="proj-name">Marketplace0.2</span>
+        <span class="proj-lang">TypeScript · React</span>
+        <span class="proj-stars">★ 2</span>
+        <span class="proj-desc">Página de loja completa com TypeScript, React e Bootstrap. <em>Live: marketplace-cyan.vercel.app</em></span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/daniellucasdev/dnxPJ" target="_blank" rel="noopener">
+        <span class="proj-idx">04</span>
+        <span class="proj-name">dnxPJ</span>
+        <span class="proj-lang">JavaScript</span>
+        <span class="proj-stars">★ 2</span>
+        <span class="proj-desc">Site institucional desenhado e construído para a DNX, empresa real de sistemas e consultoria. <em>Live: dnx-pj.vercel.app</em></span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/daniellucasdev/Kermit1.2v14" target="_blank" rel="noopener">
+        <span class="proj-idx">05</span>
+        <span class="proj-name">Kermit 1.2</span>
+        <span class="proj-lang">JavaScript · Discord</span>
+        <span class="proj-stars">★ 2</span>
+        <span class="proj-desc">Bot de Discord com comandos bem-humorados e geração de imagens personalizadas de boas-vindas.</span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/daniellucasdev/Portifolio2.0" target="_blank" rel="noopener">
+        <span class="proj-idx">06</span>
+        <span class="proj-name">Portifolio 2.0</span>
+        <span class="proj-lang">HTML · CSS · JS</span>
+        <span class="proj-stars">★ 4</span>
+        <span class="proj-desc">Meu portfólio anterior, aberto para quem quiser usar de template — a base deste que você está vendo. <em>Live: daniellucas.dev</em></span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/daniellucasdev/Projeto-Term" target="_blank" rel="noopener">
+        <span class="proj-idx">07</span>
+        <span class="proj-name">Projeto-Term</span>
+        <span class="proj-lang">HTML · JS</span>
+        <span class="proj-stars">★ 0</span>
+        <span class="proj-desc">Terminal web inspirado em Fallout. Login: admin. <em>Live: projeto-term.vercel.app</em></span>
+      </a>
+
+      <a class="proj reveal" href="https://github.com/daniellucasdev/calc-cat" target="_blank" rel="noopener">
+        <span class="proj-idx">08</span>
+        <span class="proj-name">calc-cat</span>
+        <span class="proj-lang">LOLCODE</span>
+        <span class="proj-stars">★ 0</span>
+        <span class="proj-desc">Calculadora em LOLCODE — sintaxe de C misturada com memes de gatos, para refrescar a memória muscular do C.</span>
+      </a>
+
+    </div>
+    <p class="proj-note">↳ mais no <a href="https://github.com/daniellucasdev?tab=repositories" target="_blank" rel="noopener">github.com/daniellucasdev</a> — 27 repositórios públicos, de Java a LOLCODE.</p>
+  </div>
+</section>
+
+<section id="stack" aria-labelledby="h-st">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title" id="h-st">Stack</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-group reveal">
+        <h3>Front-end</h3>
+        <div class="tags">
+          <span class="tag hl">Vue</span><span class="tag hl">Nuxt</span>
+          <span class="tag">React</span><span class="tag">TypeScript</span>
+          <span class="tag">SCSS</span><span class="tag">Tailwind CSS</span>
+          <span class="tag">Bootstrap</span><span class="tag">HTML/CSS</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <h3>Back-end &amp; dados</h3>
+        <div class="tags">
+          <span class="tag hl">Node.js</span><span class="tag hl">PHP · Laravel</span>
+          <span class="tag">PostgreSQL</span><span class="tag">Next.js</span>
+          <span class="tag">Express</span><span class="tag">Java</span>
+          <span class="tag">C++</span><span class="tag">Shell</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <h3>Mobile &amp; entrega</h3>
+        <div class="tags">
+          <span class="tag hl">Apps iOS/Android</span>
+          <span class="tag">Push notifications</span>
+          <span class="tag">CI/CD</span><span class="tag">DevOps</span>
+          <span class="tag">Linux</span><span class="tag">Vercel</span>
+        </div>
+      </div>
+      <div class="stack-group reveal">
+        <h3>Práticas</h3>
+        <div class="tags">
+          <span class="tag hl">Spec Driven Development</span>
+          <span class="tag">Cyber security</span>
+          <span class="tag">Revisão de PRs</span>
+          <span class="tag">Liderança de sprints</span>
+          <span class="tag">i18n</span><span class="tag">SEO</span>
+          <span class="tag">Acessibilidade</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" aria-labelledby="h-ab">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title" id="h-ab">Sobre</h2>
+      <span class="sec-rule" aria-hidden="true"></span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          Sou <strong>Daniel Lucas Ferreira de Araújo</strong>, engenheiro de software
+          de Governador Valadares, Minas Gerais. Comecei freelando front-end em 2022,
+          entrei na Braip ainda no início e saí pleno, liderando o app principal da
+          empresa — hoje construo e protejo produtos financeiros.
+        </p>
+        <p>
+          Gosto de pegar coisa <strong>de ponta a ponta</strong>: a pesquisa, a spec,
+          o back-end, o front, a publicação nas lojas — e de encontrar o bug de
+          cálculo que ninguém tinha visto. Formação em <strong>Engenharia Eletrônica</strong>,
+          onde co-fundei o clube de programação &amp; automação e fui monitor de
+          lógica de programação, automação industrial e engenharia de software.
+        </p>
+        <p>
+          Fora do trabalho: robôs com Raspberry Pi, bots de Discord, uma calculadora
+          em LOLCODE e <strong>inglês C2</strong> certificado pra fechar o pacote.
+        </p>
+        <blockquote class="about-quote">
+          “Educação de qualidade e gratuita pra todo mundo.”
+          <small>— meu lema, e o porquê de quase tudo que eu construo</small>
+        </blockquote>
+      </div>
+      <div class="edu reveal">
+        <div class="edu-item">
+          <h3>Engenharia Eletrônica — Bacharelado</h3>
+          <p>Faculdade Pitágoras</p>
+          <p class="when">2018 — 2023</p>
+          <ul>
+            <li>Co-fundador do clube de programação &amp; automação</li>
+            <li>Monitor: lógica de programação, automação industrial, eng. de software</li>
+          </ul>
+        </div>
+        <div class="edu-item">
+          <h3>Inglês — C2 (certificado)</h3>
+          <p>EF Standard English Test</p>
+          <p class="when">fluência nativa-like</p>
+        </div>
+        <div class="certs">
+          <b>Formações:</b> Vue.js 3 (27h) · Aplicações JavaScript (60h) ·
+          DevOps (51h) · Linux (32h) · CSS (36h) · Web Acessível (20h) ·
+          UI Design (60h) · Tipografia (24h) · CSS Animations (13h) ·
+          Desenvolvimento Web (200h) — Alura, Origamid, Udemy, IFMS
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-cta reveal">Tem um produto pra sair do papel?<br><a href="https://www.linkedin.com/in/daniellucasfaraujo/" target="_blank" rel="noopener">Vamos conversar ↗</a></p>
+    <div class="foot-links">
+      <a href="https://github.com/daniellucasdev" target="_blank" rel="noopener">GITHUB ↗</a>
+      <a href="https://www.linkedin.com/in/daniellucasfaraujo/" target="_blank" rel="noopener">LINKEDIN ↗</a>
+      <a href="https://daniellucas.dev" target="_blank" rel="noopener">PORTIFÓLIO 2.0 ↗</a>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="yr">2026</span> Daniel Lucas Ferreira de Araújo</span>
+      <span>HTML + CSS + JS vanilla · zero frameworks · <a href="https://github.com/daniellucasdev/Portifolio3.0" target="_blank" rel="noopener" style="color:inherit">código-fonte</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* year */
+  try{ document.getElementById('yr').textContent = new Date().getFullYear(); }catch(e){}
+
+  /* typing */
+  var typeEl = document.getElementById('type');
+  var line = 'dan@valadares:~$ whoami → engenheiro de software';
+  if(rm || !typeEl){ if(typeEl) typeEl.textContent = line; }
+  else{
+    var i = 0;
+    (function tick(){
+      typeEl.textContent = line.slice(0, ++i);
+      if(i < line.length) setTimeout(tick, 34);
+    })();
+  }
+
+  /* reveal on scroll */
+  var els = document.querySelectorAll('.reveal');
+  if(rm || !('IntersectionObserver' in window)){
+    els.forEach(function(el){ el.classList.add('in'); });
+  }else{
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
