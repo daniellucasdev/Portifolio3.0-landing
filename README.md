@@ -1,29 +1,43 @@
-# Portifolio3.0 — Landing Page
+# Portifolio3.0 — RobCo Termlink
 
-Portfolio de **Daniel Lucas Ferreira de Araújo**, engenheiro de software.
-Conteúdo extraído do [LinkedIn](https://www.linkedin.com/in/daniellucasfaraujo/) e do [GitHub](https://github.com/daniellucasdev).
+Portfolio de **Daniel Lucas Ferreira de Araújo** como um terminal RobCo do Fallout.
 
-**Stack:** HTML + CSS + JS vanilla. Zero frameworks, zero build. É só abrir o `index.html`.
+**Live:** https://daniellucasdev.github.io/Portifolio3.0-landing/
 
-- Tipografia: Space Grotesk + JetBrains Mono
-- Tema escuro editorial, acento verde-fósforo
-- Responsivo (testado de 390px a 1440px), `prefers-reduced-motion` respeitado
-- Dados reais: experiência, projetos com stars ao vivo do GitHub, stack, educação
+## A experiência
+
+O visitante boota um terminal RobCo Industries MK III, faz login (`admin` — a senha clássica — ou espera 9s pelo acesso de convidado) e navega por um menu estilo Fallout:
+
+1. **WHOAMI** — registro do operador (LinkedIn: cargo, XP, stack, localização, C2)
+2. **REGISTROS DE SERVIÇO** — carreira 2022–2026 em registros expansíveis
+3. **ARQUIVOS DE PROJETOS** — 8 holo-arquivos com stars ao vivo da API do GitHub
+4. **PROTOCOLOS** — stack + formação
+5. **TRANSMISSÃO** — contato
+
+O menu lateral traz um **TL;DR para recrutadores** — quem não quer "jogar" resolve em 5 segundos.
+
+## Tech
+
+- **React 19 + Vite 7 + TypeScript strict + Tailwind CSS 4**
+- **Three.js** — holograma wireframe do ProjetoBOT (robô Raspberry Pi real do GitHub), code-split via `React.lazy`: só baixa quando abre
+- **Web Audio API** — SFX sintetizados (teclas, beeps, estática, hum de CRT), zero assets
+- **CRT layer** — scanlines, beam sweep, vignette, flicker, glow de fósforo
+- **Lenis** não usado aqui: terminal tem scroll próprio por tela
+- Navegação: setas + 1–5 + Enter + ESC + mouse/touch. `prefers-reduced-motion` respeitado
+- Deploy: GitHub Actions → Pages, a cada push na `main`
+
+Bundle: ~70KB gzip no boot; +130KB só se abrir o holograma.
 
 ## Rodar local
 
 ```bash
-# não precisa de nada — abra o arquivo
-open index.html
+npm install
+npm run dev
 ```
-
-## Deploy
-
-GitHub Pages, servindo da branch `main` / root.
-Live em: **https://daniellucasdev.github.io/Portifolio3.0-landing/**
 
 ## Histórico
 
-- **1.0** — 2022, HTML/CSS/JS vanilla ([Portifolio1.0](https://github.com/daniellucasdev/Portifolio1.0))
-- **2.0** — 2024, ainda vanilla, publicado em [daniellucas.dev](https://daniellucas.dev) ([Portifolio2.0](https://github.com/daniellucasdev/Portifolio2.0))
-- **3.0** — este repo. Repositório antigo de mesmo nome (`Portifolio3.0`, um WIP em Next.js de 2023) foi preservado intacto; este live em `-landing`.
+- **1.0** (2022) / **2.0** (2024) — vanilla, [daniellucas.dev](https://daniellucas.dev)
+- **3.0** — landing editorial (Locomotive style), depois terminal
+- **v4 (atual)** — terminal RobCo Fallout com holograma Three.js
+- O repo privado `Portifolio3.0` (Next.js WIP de 2023) segue intacto
