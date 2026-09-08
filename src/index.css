@@ -1,148 +1,188 @@
 @import "tailwindcss";
 
 @theme {
-  /* Locomotive visual language — cream ink on paper, electric blue accent */
-  --color-paper: #f2f1ec;
-  --color-paper-2: #e9e7e0;
-  --color-ink: #16181d;
-  --color-ink-2: #55575c;
-  --color-line: #c9c7bf;
-  --color-blue: #2779ff;
-  --color-blue-deep: #1a4ec2;
-  --color-gwerk: #9fe870;
-  --color-night: #101216;
-  --color-night-2: #17191f;
-  --color-night-line: #26292f;
+  --color-p: #00ff41;      /* phosphor green */
+  --color-p-dim: #0aff4f;  /* dimmer green for secondary text */
+  --color-p-dark: #0a3;    /* darker green */
+  --color-amber: #ffb000;  /* amber accent (rare) */
+  --color-term-bg: #06100a;
+  --color-term-panel: #0a1a0f;
 
-  --font-sans: "Archivo", "Helvetica Now", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-term: "VT323", "Courier New", monospace;
 }
 
-html {
-  scroll-behavior: auto; /* Lenis owns scrolling */
-}
-
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
+html, body {
+  height: 100%;
+  background: #020603;
+  color: var(--color-p);
+  font-family: var(--font-term);
+  overscroll-behavior: none;
 }
 
 body {
-  background: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: clip;
+  overflow: hidden; /* the terminal owns scrolling */
 }
 
 ::selection {
-  background: var(--color-blue);
-  color: #fff;
+  background: var(--color-p);
+  color: #06100a;
+}
+
+/* ————— CRT effects ————— */
+
+/* scanlines: repeating horizontal dark lines */
+.crt-scanlines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.22) 3px,
+    rgba(0, 0, 0, 0.22) 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* moving bright scanline */
+.crt-beam {
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 41;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 255, 65, 0.045),
+    transparent
+  );
+  animation: beam 7s linear infinite;
+}
+@keyframes beam {
+  0% { top: -15%; }
+  100% { top: 110%; }
+}
+
+/* vignette + slight inner glow */
+.crt-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 42;
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* subtle screen curvature glow at top/bottom edges */
+.crt-edge {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 43;
+  box-shadow: inset 0 0 120px rgba(0, 255, 65, 0.06);
+}
+
+/* text glow */
+.glow {
+  text-shadow: 0 0 4px rgba(0, 255, 65, 0.45), 0 0 12px rgba(0, 255, 65, 0.18);
+}
+.glow-soft {
+  text-shadow: 0 0 3px rgba(0, 255, 65, 0.25);
+}
+
+/* flicker */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  7% { opacity: 0.86; }
+  8% { opacity: 1; }
+  62% { opacity: 0.94; }
+  63% { opacity: 1; }
+  85% { opacity: 0.9; }
+  86% { opacity: 1; }
+}
+.flicker {
+  animation: flicker 6s infinite;
+}
+@keyframes flicker-fast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.flicker-fast {
+  animation: flicker-fast 0.16s infinite;
+}
+
+/* cursor */
+.cursor-block {
+  display: inline-block;
+  width: 0.62em;
+  height: 1em;
+  background: var(--color-p);
+  animation: cursor-blink 1.06s steps(1) infinite;
+  vertical-align: text-bottom;
+}
+@keyframes cursor-blink {
+  50% { opacity: 0; }
+}
+
+/* typing line-by-line reveal helper */
+.line-in {
+  animation: line-in 0.18s ease-out;
+}
+@keyframes line-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* boot bar */
+.boot-bar {
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-p) 0 6px,
+    transparent 6px 9px
+  );
+}
+
+/* menu option hover/selected */
+.opt {
+  color: var(--color-p);
+  text-decoration: none;
+}
+.opt:hover .opt-label,
+.opt.selected .opt-label {
+  background: var(--color-p);
+  color: #06100a;
+}
+
+/* holotape spin (CSS fallback if three fails) */
+@keyframes spin-y {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* scrollbar as terminal */
+.term-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-p-dark) transparent;
+}
+.term-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.term-scroll::-webkit-scrollbar-thumb {
+  background: #0a3;
+}
+.term-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .crt-beam, .flicker, .flicker-fast, .marquee-track {
+    animation: none !important;
   }
-}
-
-/* ————— Locomotive mega type ————— */
-.mega {
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
-  text-transform: uppercase;
-}
-
-/* horizontal rule label, like locomotive section eyebrows */
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-/* underline sweep link (Locomotive nav style) */
-.sweep {
-  position: relative;
-}
-.sweep::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  height: 1px;
-  width: 100%;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.45s var(--ease-out-expo);
-}
-.sweep:hover::after,
-.sweep:focus-visible::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* marquee */
-@keyframes marquee-x {
-  from {
-    transform: translateX(0);
+  .cursor-block {
+    animation: none !important;
   }
-  to {
-    transform: translateX(-50%);
-  }
-}
-.marquee-track {
-  animation: marquee-x 28s linear infinite;
-}
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-/* index list rows (Locomotive work list) */
-.row-link {
-  transition: background 0.35s var(--ease-out-expo), color 0.35s var(--ease-out-expo),
-    padding 0.35s var(--ease-out-expo);
-}
-.row-link:hover,
-.row-link:focus-visible {
-  background: var(--color-ink);
-  color: var(--color-paper);
-}
-.row-link:hover .row-idx,
-.row-link:focus-visible .row-idx {
-  color: var(--color-blue);
-}
-
-/* dark section inverts the sweep + rows */
-.dark-zone .row-link:hover,
-.dark-zone .row-link:focus-visible {
-  background: var(--color-gwerk);
-  color: var(--color-night);
-}
-.dark-zone .row-link:hover .row-idx,
-.dark-zone .row-link:hover .row-meta {
-  color: #33421f;
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-blue);
-  outline-offset: 3px;
-}
-.dark-zone :focus-visible {
-  outline-color: var(--color-gwerk);
 }
