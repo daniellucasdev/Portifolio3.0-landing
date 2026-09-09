@@ -1,223 +1,233 @@
-/* ————— Terminal content ————— */
+/* ————————————————————————————————
+   CONTEÚDO — extraído de LinkedIn + GitHub (2026)
+   ———————————————————————————————— */
 
-export const BOOT_LINES: string[] = [
-  '*********************************************************************',
-  '* ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL                            *',
-  '* COPYRIGHT 2075-2077 ROBCO INDUSTRIES                              *',
-  '* LOADING VAULT-TEC OPERATING SYSTEM v7.4.0.3                       *',
-  '* SERVER 6 - DANIEL LUCAS F. DE ARAUJO                              *',
-  '*********************************************************************',
+export const TICKER = [
+  'ENG. DE SOFTWARE × 5 ANOS',
+  '4 APPS NAS LOJAS',
+  'CYBER SECURITY',
+  'ROBÓTICA / RASPBERRY PI',
+  'VUE · NUXT · TS · LARAVEL',
+  'DUNGEON DESK',
+  'SDD 4→7 ENTREGAS/DIA',
+  'EDUCAÇÃO GRATUITA',
 ]
 
-export const LOGIN_HINT = 'ENTRE COM SENHA OU AGUARDE ACESSO DE CONVIDADO:'
-
-export const MENU: { key: string; cmd: string; label: string }[] = [
-  { key: '1', cmd: 'whoami', label: 'OPERADOR — Daniel Lucas, Engenheiro de Software' },
-  { key: '2', cmd: 'experiencia', label: 'REGISTROS DE SERVICO — carreira 2022-2026' },
-  { key: '3', cmd: 'projetos', label: 'ARQUIVOS DE PROJETOS — GitHub #27 repos' },
-  { key: '4', cmd: 'skills', label: 'PROTOCOLOS — stack e ferramentas' },
-  { key: '5', cmd: 'contato', label: 'TRANSMISSAO — contato e educaçao' },
+export const MANIFESTO = [
+  'Meu portfólio anterior era um terminal do Fallout.',
+  'Antes dele, um editorial suíço. Eu gosto de quebrar o padrão —',
+  'mas o código que eu escrevo não quebra: app publicado em 2 meses,',
+  'auditoria que economizou 3,3% de uma plataforma de TPV milionário,',
+  'Lighthouse de 38 pra 94. Design punk, entrega enterprise.',
 ]
 
-export const WHOAMI = [
-  'REGISTRO DO OPERADOR — VAULT-TEC PERSONNEL FILE',
-  '===================================================',
-  '',
-  '  NOME..............: Daniel Lucas Ferreira de Araujo',
-  '  FUNCAO............: Engenheiro de Software e Seguranca',
-  '  CLASSE............: FULL-STACK (DE PONTA A PONTA)',
-  '  XP TOTAL..........: 5 anos e contando',
-  '  BASE..............: Governador Valadares, MG [BRASIL]',
-  '  STATUS............: ONLINE — disponivel para remoto',
-  '  IDIOMAS...........: PT (nativo) / EN C2 certificado (EF SET)',
-  '',
-  'PERGUNTA DE SEGURANCA: "O que voce faz?"',
-  'RESPOSTA:',
-  '  Pego o produto inteiro — do briefing ao deploy. App publicado',
-  '  nas lojas em 2 meses, plataforma de TPV milionario, Lighthouse',
-  '  de 38 pra 94. E se tiver um bug de calculo escondido, eu acho.',
-  '',
-  'MOTTO PESSOAL:',
-  '  "Educaçao de qualidade e gratuita pra todo mundo."',
-  '  (o porquê de quase tudo o que eu construo)',
-]
-
-export const XP_RECORDS = [
-  {
-    header: '>>> REGISTRO 2076-08 — ATIVO',
-    org: 'CONSULTORIA FINANCEIRA (ANONIMA)',
-    role: 'Engenheiro de Software e Seguranca',
-    meta: '22 paises · 100-150 pessoas · remoto',
-    lines: [
-      'Engenharia e seguranca de software para produtos financeiros,',
-      'com principios de cyber security aplicados no fluxo de',
-      'desenvolvimento.',
-    ],
-  },
-  {
-    header: '>>> REGISTRO 2076-02 — ATIVO',
-    org: 'PAGAH',
-    role: 'Engenheiro de Software',
-    meta: 'checkout + call center + pagamento em escala',
-    lines: [
-      'APP DA EMPRESA: desenvolvido de ponta a ponta em 2 meses — da',
-      'burocracia (DUNS, e-mails) ao back-end (Auth, APIs), front-end,',
-      'push notifications e publicaçao nas lojas.',
-      '',
-      'FLUXO SDD: implementei Spec Driven Development para features',
-      'pos-lancamento. Media de entregas diarias: 4 -> 7.',
-      '',
-      'AREA DE CURSOS: painel admin completo + plataforma do aluno em',
-      '2 meses. Loading refinado: 5s -> 1s.',
-      '',
-      'AUDITORIA FINANCEIRA: descobri que usuarios podiam sacar vendas',
-      'com juros inclusos. Correçao = 3,3% de economia em plataforma',
-      'de TPV milionario.',
-    ],
-  },
-  {
-    header: '>>> REGISTRO 2075-03 ATE 2076-03',
-    org: 'BRAIP — MID LEVEL (PLENO)',
-    role: 'Mid-Level Software Developer',
-    meta: 'promocao recebida pelo time',
-    lines: [
-      'LIDER DO APP BRAIPV2: start do projeto, desenvolvimento,',
-      'publicaçao nas lojas Android e Apple, push notifications e',
-      'delegaçao de tarefas ao time.',
-    ],
-  },
-  {
-    header: '>>> REGISTRO 2072-12 ATE 2075-03',
-    org: 'BRAIP — FRONT-END',
-    role: 'Front-End Developer',
-    meta: '6 produtos · +20 comerciais',
-    lines: [
-      'BRAIP MARKETPLACE: do zero ao pos-lancamento. SEO que elevou',
-      'o Lighthouse de 38 para 94.',
-      '',
-      'Liderança de sprints, revisao de PRs e estrutura de',
-      'internacionalizaçao do site — liderando as equipes.',
-      '',
-      'Onboarding de trainees e traduçao para publico internacional',
-      'em eventos.',
-    ],
-  },
-  {
-    header: '>>> REGISTRO 2072-09 ATE 2074-02',
-    org: 'FREELANCER — WASTELAND SOLO',
-    role: 'Full-Stack Freelancer',
-    meta: 'clientes no Brasil e no exterior',
-    lines: [
-      'De site para autor de fantasia a landing de curso de direito,',
-      'passando por empresa de mineracao de MMO RPG.',
-      '',
-      'Back-end: bot de Discord ligado a API de arte generativa e i18n',
-      'de software de emissao de faturas.',
-    ],
-  },
-]
-
-export const SKILLS = {
-  'FRONT-END': ['Vue', 'Nuxt', 'React', 'TypeScript', 'SCSS', 'Tailwind CSS', 'Bootstrap'],
-  'BACK-END': ['Node.js', 'PHP / Laravel', 'PostgreSQL', 'Next.js', 'Express', 'Java', 'C++', 'Shell'],
-  'MOBILE & ENTREGA': ['Apps iOS/Android', 'Push Notifications', 'CI/CD', 'DevOps', 'Linux', 'Vercel'],
-  'PROTOCOLOS DE TRABALHO': ['Spec Driven Development', 'Cyber Security', 'Revisao de PRs', 'Liderança de Sprints', 'i18n', 'SEO', 'Acessibilidade'],
+export const RECORD = {
+  title: 'DOCUMENTO VERIFICADO',
+  rows: [
+    ['FUNÇÃO', 'Engenheiro de Software e Segurança'],
+    ['EXPERIÊNCIA', '5 anos · 2 meses'],
+    ['APPS PUBLICADOS', '4 (App Store + Play Store)'],
+    ['ATUAL', 'Consultoria financeira · 22 países'],
+    ['STACK NÚCLEO', 'Vue · Nuxt · TypeScript · Laravel · Node'],
+    ['IDIOMAS', 'PT nativo · EN nativo-bilíngue · DE profissional'],
+    ['BASE', 'Governador Valadares, MG — remoto'],
+  ],
 }
 
-export const EDUCATION = [
+export const GIGS = [
   {
-    title: 'Bacharelado em Engenharia Eletronica',
-    place: 'Faculdade Pitagoras · 2018-2023',
-    notes: [
-      'Co-fundador do clube de programaçao & automaçao',
-      'Monitor de logica de programaçao, automaçao industrial e eng. de software',
+    venue: 'CONSULTORIA FINANCEIRA',
+    city: 'remoto · 22 países',
+    period: '2026 — AGORA',
+    role: 'Eng. de Software e Segurança',
+    tracks: [
+      'Engenharia + segurança aplicada em produtos financeiros',
+      'Cyber security embutida no fluxo de desenvolvimento',
     ],
   },
   {
-    title: 'Ingles C2 — certificado',
-    place: 'EF Standard English Test',
-    notes: [],
+    venue: 'PAGAH',
+    city: 'checkout + pagamentos em escala',
+    period: '2026',
+    role: 'Eng. de Software',
+    tracks: [
+      'App da empresa de ponta a ponta em 2 meses — DUNS, Auth, APIs, push, lojas',
+      'Fluxo SDD: entregas diárias de 4 → 7',
+      'Área de Cursos completa: admin + aluno, loading 5s → 1s',
+      'Auditoria: bug de saque com juros → 3,3% de economia no TPV',
+    ],
+  },
+  {
+    venue: 'BRAIP',
+    city: 'marketplace · 6 produtos · +20 comerciais',
+    period: '2022 — 2026',
+    role: 'Front-End → Mid-Level (Pleno)',
+    tracks: [
+      'Líder do app BraipV2: squad, desenvolvimento, publicação nas lojas',
+      'Marketplace do zero ao pós-lançamento · Lighthouse 38 → 94',
+      'Liderança de sprints, revisão de PRs, i18n liderando equipes',
+      'Onboarding de trainees · tradução internacional em eventos',
+    ],
+  },
+  {
+    venue: 'WASTELAND FREELANCE',
+    city: 'clientes no Brasil e fora',
+    period: '2022 — 2024',
+    role: 'Full-Stack',
+    tracks: [
+      'Reino 2.0 — marca de livro na Bienal (500 mil pessoas)',
+      'Darksteel — negócio de mineração em MMO',
+      'Bot de Discord + API de arte generativa · i18n de faturas',
+    ],
   },
 ]
 
-export const CONTACT = [
-  'ABRIR CANAL DE TRANSMISSAO:',
-  '',
-  '  LINKEDIN.....: linkedin.com/in/daniellucasfaraujo',
-  '  GITHUB.......: github.com/daniellucasdev',
-  '  PORTFOLIO V2.: daniellucas.dev',
-  '  LOCAL........: Governador Valadares, MG — Brasil',
-  '',
-  'Disponivel para remoto. Ingles C2. Tempo de resposta: rapido,',
-  'gostoso de ver. Fale comigo antes que outro Vault contrate.',
-]
-
-export const PROJECTS = [
+export const DEMOS = [
   {
-    name: '404',
-    repo: '404',
-    desc: 'Forum fullstack em Next + Postgres + Node. Sistema de posts e contas para compartilhar conhecimento — a educaçao gratuita em forma de software.',
-    lang: 'JavaScript · Next',
-    stars: 0,
-    live: 'https://404-eight.vercel.app',
+    name: 'Dungeon Desk',
+    year: "'26",
+    tag: 'APP · IA · SDD',
+    desc: 'App independente pra sessões de D&D com IA: gera NPCs, one-shots, locais e itens com engenharia de prompt. Deve tá rolando dado agora em alguma mesa.',
+    link: 'https://www.dungeondesk.com.br/',
+    stamp: 'INDIE',
+  },
+  {
+    name: 'Pagah App',
+    year: "'26",
+    tag: 'FINTECH · MOBILE',
+    desc: 'App da plataforma financeira Pagah, do certificado DUNS à publicação. Painel do usuário, valores, perfil, notificações.',
+    link: null,
+    stamp: '2 MESES',
+  },
+  {
+    name: 'BraipV2 + Logg',
+    year: "'25",
+    tag: 'MOBILE · SQUAD LEAD',
+    desc: 'App da plataforma Braip + app de logística com mapeamento de rotas e scan de etiquetas por câmera/QR. Montei o squad, publiquei nas lojas.',
+    link: null,
+    stamp: '2 APPS',
+  },
+  {
+    name: 'BigBotUI',
+    year: 'OSS',
+    tag: 'VUE 3 · NPM · LÍDER',
+    desc: 'Lib open-source de componentes Vue 3. Subi o repositório inicial, publiquei no NPM e lidero curadores e revisões.',
+    link: 'https://www.npmjs.com/',
+    stamp: 'OPEN SOURCE',
   },
   {
     name: 'ProjetoBOT',
-    repo: 'ProjetoBOT',
-    desc: 'Robo em Raspberry Pi ligado na API do Gemini, com TTS em nuvem. Pergunta ai, ele responde em tempo real.',
-    lang: 'C++ · Raspberry Pi',
-    clickAction: 'holo', // shows the hologram screen
-    stars: 0,
+    year: "'25",
+    tag: 'C++ · RASPBERRY PI · GEMINI',
+    desc: 'Robô físico em Raspberry Pi conectado à API do Gemini com TTS em nuvem. Pergunta aí — ele responde em tempo real.',
+    link: 'https://github.com/daniellucasdev/ProjetoBOT',
+    stamp: 'HARDWARE',
   },
   {
-    name: 'Marketplace0.2',
-    repo: 'Marketplace0.2',
-    desc: 'Loja completa com TypeScript, React e Bootstrap. Do carrinho ao checkout.',
-    lang: ' TypeScript · React',
-    stars: 2,
-    live: 'https://marketplace-cyan.vercel.app',
+    name: '404 — o fórum',
+    year: "'25",
+    tag: 'NEXT · POSTGRES · NODE',
+    desc: 'Fórum fullstack com posts e contas. A educação gratuita em forma de software — meu lema compila.',
+    link: 'https://github.com/daniellucasdev/404',
+    stamp: 'WIP',
   },
   {
-    name: 'dnxPJ',
-    repo: 'dnxPJ',
-    desc: 'Site institucional desenhado e construido para uma empresa real de sistemas e consultoria. Cliente de verdade, deadline de verdade.',
-    lang: 'JavaScript',
-    stars: 2,
-    live: 'https://dnx-pj.vercel.app',
-  },
-  {
-    name: 'Kermit 1.2',
-    repo: 'Kermit1.2v14',
-    desc: 'Bot de Discord com respostas engracadas e imagens de boas-vindas geradas na hora.',
-    lang: 'JavaScript · Discord',
-    stars: 2,
-  },
-  {
-    name: 'Portifolio 2.0',
-    repo: 'Portifolio2.0',
-    desc: 'Meu portfolio anterior, aberto pra quem quiser usar de template.',
-    lang: 'HTML · CSS · JS',
-    stars: 4,
-    live: 'https://daniellucas.dev',
-  },
-  {
-    name: 'Projeto-Term',
-    repo: 'Projeto-Term',
-    desc: 'Terminal web inspirado em Fallout. Login: admin. Sim, esse mesmo que voce esta usando.',
-    lang: 'HTML · JS',
-    stars: 0,
-    live: 'https://projeto-term.vercel.app',
+    name: 'Reino 2.0',
+    year: "'24",
+    tag: 'E-COMMERCE · FANTASIA',
+    desc: 'Site-marca de livro de fantasia na Bienal do Livro (500 mil visitantes). Merchan + livro, atmosfera vintage.',
+    link: 'https://www.livroreino.com',
+    stamp: 'BIENAL',
   },
   {
     name: 'calc-cat',
-    repo: 'calc-cat',
-    desc: 'Calculadora em LOLCODE — sintaxe de C misturada com memes de gatos.',
-    lang: 'LOLCODE',
-    stars: 0,
+    year: "'24",
+    tag: 'LOLCODE',
+    desc: 'Calculadora em LOLCODE — C misturado com memes de gatos. Porque memória muscular também merece diversão.',
+    link: 'https://github.com/daniellucasdev/calc-cat',
+    stamp: 'ESOLANG',
   },
 ]
 
-/* ASCII art: RobCo terminal frame header */
-export const ASCII_HEADER = String.raw`┌─────────────────────────────────────────────┐
-│ ROBCO INDUSTRIES — TERMLINK MK III          │
-└─────────────────────────────────────────────┘`
+/* ——— Círculo de habilidades: do amplamente usado ao underground ——— */
+export type SkillNode = { name: string; note: string; ring: 0 | 1 | 2 }
+
+export const RINGS = [
+  { id: 0, label: 'NÚCLEO', sub: 'todo dia, em tudo' },
+  { id: 1, label: 'PISTA', sub: 'domínio de estrada' },
+  { id: 2, label: 'UNDERGROUND', sub: 'nicho — e é aqui que é divertido' },
+]
+
+export const SKILLS: SkillNode[] = [
+  // ring 0 — mainstream
+  { name: 'JavaScript', note: 'onde tudo começou em 2022', ring: 0 },
+  { name: 'HTML/CSS', note: 'handmade, sem medo do cascade', ring: 0 },
+  { name: 'TypeScript', note: 'tipos salvam vidas à noite', ring: 0 },
+  { name: 'Git', note: 'commits pequenos, consciência limpa', ring: 0 },
+  // ring 1 — solid mid
+  { name: 'Vue', note: 'meu campista elétrico', ring: 1 },
+  { name: 'Nuxt', note: 'SSR sem drama', ring: 1 },
+  { name: 'React', note: 'este site aqui é prova', ring: 1 },
+  { name: 'Node.js', note: 'APIs que pagam boleto', ring: 1 },
+  { name: 'Laravel/PHP', note: 'artisan das cavernas', ring: 1 },
+  { name: 'PostgreSQL', note: 'joins sem arrependimento', ring: 1 },
+  { name: 'Tailwind', note: 'utility-first punk', ring: 1 },
+  { name: 'SEO', note: 'Lighthouse 38 → 94 no Braip', ring: 1 },
+  // ring 2 — niche
+  { name: 'Cyber Security', note: 'auditoria que achou o bug do saque', ring: 2 },
+  { name: 'SDD', note: 'Spec Driven: 4 → 7 entregas/dia', ring: 2 },
+  { name: 'Raspberry Pi', note: 'robô de mesa com Gemini', ring: 2 },
+  { name: 'Prompt Eng.', note: 'Dungeon Desk gera NPCs', ring: 2 },
+  { name: 'i18n', note: 'liderei a internacionalização do Braip', ring: 2 },
+  { name: 'LOLCODE', note: 'HAI, calculadora de gatos', ring: 2 },
+  { name: 'Discord Bots', note: 'Kermit dá boas-vindas com meme', ring: 2 },
+  { name: 'Acessibilidade', note: 'web pra todo mundo — sempre', ring: 2 },
+]
+
+export const CYBER = {
+  title: 'BACKLINE: SEGURANÇA & ROBÓTICA',
+  lead: 'O punk é estética. A segurança é método. Eu uso os dois.',
+  points: [
+    {
+      h: 'CYBER SECURITY EM PRODUÇÃO',
+      p: 'Segurança aplicada no fluxo de desenvolvimento de produtos financeiros — não como checklist, como princípio. Na auditoria da Pagah, verifiquei os cálculos do valor sacável e achei o bug que deixava sacar venda com juros inclusos. Correção: 3,3% de economia numa plataforma de TPV milionário.',
+    },
+    {
+      h: 'SPEC DRIVEN DEVELOPMENT',
+      p: 'Estruturei o fluxo de SDD para features pós-lançamento: spec antes do código, código antes do deploy. Média de entregas diárias subiu de 4 para 7 — sem abrir mão de segurança.',
+    },
+    {
+      h: 'ROBÓTICA COM IA',
+      p: 'ProjetoBOT: Raspberry Pi + API do Gemini + TTS interpolado em nuvem. Um robô físico que responde perguntas em tempo real. Eletrônica da formação em Engenharia Eletrônica (Pitágoras, 2018–2023) virando brinquedo sério.',
+    },
+  ],
+}
+
+export const SIDEB = [
+  {
+    h: 'CONSULTORIA GRATUITA DE CV',
+    p: 'Realoquei 20+ profissionais de tech no mercado — de Júnior a Tech Lead — reformulando currículo (ATS, palavras-chave, dados) e LinkedIn. Gratuito, de propósito.',
+    stamp: '20+ REALOCADOS',
+  },
+  {
+    h: 'MONITOR & PROFESSOR',
+    p: 'Monitor de lógica, automação industrial e eng. de software na Pitágoras; monitor no Code Artisan, programa filantrópico da prefeitura de Governador Valadares. Gosto de docência — e a educação gratuita é meu lema.',
+    stamp: 'EDUCAÇÃO LIVRE',
+  },
+  {
+    h: 'HONRA AO MÉRITO — EXÉRCITO',
+    p: 'Premiação do Alistamento Militar Obrigatório para poucos alistados: zero atrasos, voluntariado alto, alto desempenho. Disciplina também é punk.',
+    stamp: 'EXÉRCITO BR',
+  },
+  {
+    h: 'D&D, METAL & ALEMÃO',
+    p: 'Mestre de mesa (o Dungeon Desk nasceu de uma sessão), fã de metal e punk rock, alemão em nível profissional. O resto do tempo é código.',
+    stamp: 'SIDE B',
+  },
+]
+
+export const CONTACT = {
+  linkedin: 'https://www.linkedin.com/in/daniellucasfaraujo/',
+  github: 'https://github.com/daniellucasdev',
+  old: 'https://daniellucas.dev',
+}
