@@ -50,7 +50,7 @@ export default function SkillRadar() {
           <div className="relative mx-auto w-full max-w-[560px]">
             <svg
               viewBox={`0 0 ${SIZE} ${SIZE}`}
-              className={`w-full h-auto ${frozen ? '' : 'radar-sweep'}`}
+              className="w-full h-auto"
               role="img"
               aria-label="Círculo de habilidades ordenadas do menos nichado (centro) ao mais nichado (borda)"
               onMouseLeave={() => setFrozen(false)}
@@ -79,9 +79,16 @@ export default function SkillRadar() {
                   <stop offset="100%" stopColor="#e10600" stopOpacity="0" />
                 </linearGradient>
               </defs>
-              {!frozen && (
+              {/* sweep wedge — only this group rotates; labels stay put */}
+              <g
+                className="radar-sweep"
+                style={{
+                  transformOrigin: `${C}px ${C}px`,
+                  animationPlayState: frozen ? 'paused' : 'running',
+                }}
+              >
                 <path d={`M ${C} ${C} L ${C} ${C - RING_R[2]} A ${RING_R[2]} ${RING_R[2]} 0 0 1 ${C + RING_R[2] * Math.sin(Math.PI / 4)} ${C - RING_R[2] * Math.cos(Math.PI / 4)} Z`} fill="url(#sweep)" />
-              )}
+              </g>
 
               {/* needle */}
               <g
