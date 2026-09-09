@@ -1,43 +1,44 @@
-# Portifolio3.0 — RobCo Termlink
+# Portifolio3.0 — v5 "fanzine punk"
 
-Portfolio de **Daniel Lucas Ferreira de Araújo** como um terminal RobCo do Fallout.
+Portfolio de **Daniel Lucas Ferreira de Araújo**: design de fanzine photocopy-punk,
+conteúdo de engenheiro enterprise. Preto/vermelho, tipografia distorcida,
+grão de xerox — e dados verificáveis como contrapeso.
 
 **Live:** https://daniellucasdev.github.io/Portifolio3.0-landing/
 
-## A experiência
+## O conceito
 
-O visitante boota um terminal RobCo Industries MK III, faz login (`admin` — a senha clássica — ou espera 9s pelo acesso de convidado) e navega por um menu estilo Fallout:
+O recrutador entende em 3 segundos que este dev **gosta de arriscar** — e em
+mais 10 que ele **entrega**: cada seção estética tem um contrapeso factual
+(carimbos "VERIFICADO", ficha parseável, métricas duras).
 
-1. **WHOAMI** — registro do operador (LinkedIn: cargo, XP, stack, localização, C2)
-2. **REGISTROS DE SERVIÇO** — carreira 2022–2026 em registros expansíveis
-3. **ARQUIVOS DE PROJETOS** — 8 holo-arquivos com stars ao vivo da API do GitHub
-4. **PROTOCOLOS** — stack + formação
-5. **TRANSMISSÃO** — contato
-
-O menu lateral traz um **TL;DR para recrutadores** — quem não quer "jogar" resolve em 5 segundos.
+- **Hero** — tipografia mosh gigante (Rubik Dirt), glitch periódico no nome, manifesto em papel colado com fita adesiva
+- **Ticker** vermelho de fatos da carreira em loop
+- **01/Provas** — "DOCUMENTO VERIFICADO": ficha profissional limpa, ATS-friendly
+- **02/Turnês** — carreira como agenda de shows: venue, cidade, setlist (2022–2026)
+- **03/Radar** — a micro-interação de círculo de habilidades: radar analógico com agulha que varre do núcleo (mainstream) à borda (underground/nicho). Hover/foco fixa a agulha e mostra a leitura; teclado funciona (Tab + hover)
+- **04/Demos** — projetos como fitas demo: cards rotacionados, carimbos, stars ao vivo da API do GitHub
+- **05/Backline** — cyber security & robótica em destaque + **robô punk wireframe em Three.js** (lazy): mohawk, headbang, chifre de metal — só baixa quando a seção aparece
+- **06/Lado B** — consultoria gratuita (20+ devs realocados), monitorias, Honra ao Mérito do Exército, D&D/metal/alemão
+- **Footer** — "BORA TOCAR JUNTOS"
 
 ## Tech
 
-- **React 19 + Vite 7 + TypeScript strict + Tailwind CSS 4**
-- **Three.js** — holograma wireframe do ProjetoBOT (robô Raspberry Pi real do GitHub), code-split via `React.lazy`: só baixa quando abre
-- **Web Audio API** — SFX sintetizados (teclas, beeps, estática, hum de CRT), zero assets
-- **CRT layer** — scanlines, beam sweep, vignette, flicker, glow de fósforo
-- **Lenis** não usado aqui: terminal tem scroll próprio por tela
-- Navegação: setas + 1–5 + Enter + ESC + mouse/touch. `prefers-reduced-motion` respeitado
-- Deploy: GitHub Actions → Pages, a cada push na `main`
+React 19 · Vite 7 · TypeScript strict · Tailwind CSS 4 · Three.js (code-split ~130KB on-demand)
+· Spline Sans Mono + Special Elite + Rubik Dirt/Glitch (fontes com personalidade, nada de Inter)
+· grain SVG inline · `prefers-reduced-motion` respeitado · deploy GitHub Actions → Pages
 
-Bundle: ~70KB gzip no boot; +130KB só se abrir o holograma.
+Bundle inicial: ~70KB gzip.
 
-## Rodar local
+## Rodar
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Histórico
+## Histórico de versões
 
-- **1.0** (2022) / **2.0** (2024) — vanilla, [daniellucas.dev](https://daniellucas.dev)
-- **3.0** — landing editorial (Locomotive style), depois terminal
-- **v4 (atual)** — terminal RobCo Fallout com holograma Three.js
-- O repo privado `Portifolio3.0` (Next.js WIP de 2023) segue intacto
+- v1/v2 (2022/2024) — vanilla · v3 — editorial Locomotive · v4 — terminal RobCo Fallout
+- **v5 (atual)** — fanzine punk com radar de skills e robô Three.js
+- Repo privado `Portifolio3.0` (Next WIP 2023) preservado intacto
