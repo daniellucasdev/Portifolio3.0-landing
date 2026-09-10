@@ -68,7 +68,7 @@ export default function Demos() {
               </article>
             )
             return d.link ? (
-              <a key={d.name} href={d.link} target="_blank" rel="noopener" className="block hover:-translate-y-1 transition-transform">
+              <a key={d.name} href={d.link} target="_blank" rel="noopener" className="block hover:-translate-y-1 transition-transform" data-cursor="VER">
                 {Card}
               </a>
             ) : (

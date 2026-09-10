@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { MANIFESTO, CONTACT } from '../data'
+import Magnetic from './Magnetic'
+import Scramble from './Scramble'
 
 const GLITCH_CHARS = ['#', '%', '&', '@', '§', '▓', '░', '?', 'X']
 
@@ -70,21 +72,24 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href={CONTACT.linkedin}
-                target="_blank"
-                rel="noopener"
-                className="mosh text-xl md:text-2xl bg-red text-white px-6 py-3 hover:bg-paper hover:text-ink transition-colors"
-              >
-                CONTRATA ↗
-              </a>
+              <Magnetic strength={0.3}>
+                <a
+                  href={CONTACT.linkedin}
+                  target="_blank"
+                  rel="noopener"
+                  className="mosh text-xl md:text-2xl bg-red text-white px-6 py-3 hover:bg-paper hover:text-ink transition-colors inline-block"
+                  data-cursor="HIRE"
+                >
+                  CONTRATA ↗
+                </a>
+              </Magnetic>
               <a
                 href={CONTACT.github}
                 target="_blank"
                 rel="noopener"
                 className="font-mono text-sm border-2 border-paper/40 px-5 py-3 hover:border-red hover:text-red transition-colors"
               >
-                github/daniellucasdev
+                github/<Scramble text="daniellucasdev" />
               </a>
               <span className="stamp text-xs md:text-sm ml-2">não sou robô*</span>
             </div>

@@ -8,6 +8,7 @@ import Demos from './components/Demos'
 import CyberSection from './components/CyberSection'
 import SideB from './components/SideB'
 import Footer from './components/Footer'
+import Cursor from './components/Cursor'
 
 /* the wireframe robot only downloads when its section is near */
 const Robot = lazy(() => import('./components/Robot'))
@@ -15,6 +16,7 @@ const Robot = lazy(() => import('./components/Robot'))
 export default function App() {
   return (
     <div className="grain">
+      <Cursor />
       <Hero />
       <Ticker />
       <Record />
@@ -22,7 +24,7 @@ export default function App() {
       <SkillRadar />
       <Demos />
       <CyberSection>
-        <Suspense fallback={<div className="h-[420px] grid place-items-center font-mono text-smoke-foreground/40">carregando o robô…</div>}>
+        <Suspense fallback={<div className="h-[420px] grid place-items-center font-mono text-paper/40">carregando o robô…</div>}>
           <Robot />
         </Suspense>
       </CyberSection>

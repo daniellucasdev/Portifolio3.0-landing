@@ -7,7 +7,7 @@ export default function Footer() {
         <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-white/70 mb-6">
           última faixa — bônus escondido
         </p>
-        <a href={CONTACT.linkedin} target="_blank" rel="noopener" className="group block mb-12">
+        <a href={CONTACT.linkedin} target="_blank" rel="noopener" className="group block mb-12" data-cursor="BORA">
           <span className="mosh block text-[13vw] md:text-[9vw] leading-[0.85] group-hover:text-ink transition-colors duration-300">
             BORA
             <br />
